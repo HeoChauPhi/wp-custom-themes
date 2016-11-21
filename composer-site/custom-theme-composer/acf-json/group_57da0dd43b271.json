@@ -1,11 +1,11 @@
 {
     "key": "group_57da0dd43b271",
-    "title": "Group Component",
+    "title": "View Component",
     "fields": [
         {
             "key": "field_57da0e0492c4a",
-            "label": "Group Component",
-            "name": "group_component",
+            "label": "View Component",
+            "name": "view_component",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -1093,5 +1093,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1476940421
+    "modified": 1479717718
 }

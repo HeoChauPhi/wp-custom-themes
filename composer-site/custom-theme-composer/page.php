@@ -36,10 +36,10 @@ $menu_obj = wp_get_nav_menu_object($sidebar_menu);
 $context['sidebar_menu'] = $sidebar_menu;
 //$context['menu_select'] = new TimberMenu($menu_obj->term_id);
 
-$facebook = get_option('text_field');
+/*$facebook = get_option('text_field');
 $upload = get_option('upload_field');
 echo $facebook;
-echo $upload;
+echo $upload;*/
 
 
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig'), $context );
