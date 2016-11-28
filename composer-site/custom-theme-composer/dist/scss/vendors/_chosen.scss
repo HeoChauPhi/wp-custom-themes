@@ -105,7 +105,6 @@
 }
 
 .chosen-single {
-  @include worksans-regular;
   background-color: $gray-f4;
   border-radius: rem(3px);
   border: 1px solid $border-color;

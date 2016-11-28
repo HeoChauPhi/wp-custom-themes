@@ -20,7 +20,7 @@ var gulp = require('gulp'),
   };
 
 // Task for local, static development.
-gulp.task('local-development', ['sass-dev', 'styleguide'], function () {
+gulp.task('local-development', ['sass-dev'], function () {
   gulp.watch(src.scss, ['sass-dev']);
   gulp.watch(src.javascript);
 });
@@ -90,7 +90,7 @@ gulp.task('js-lint', function () {
 
 // Gulp Task for development mode.
 // SASS compile, template generation, SCSS/JS linter
-gulp.task('dev', ['sass-dev', 'styleguide'], function () {
+gulp.task('dev', ['sass-dev'], function () {
   gulp.watch(src.scss, ['sass-dev', 'scss-lint']);
   gulp.watch(src.javascript, ['js-lint']);
 });
