@@ -72,38 +72,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])):
   if ( in_array( $_ENV['PANTHEON_ENVIRONMENT'], array( 'test', 'live' ) ) && ! defined( 'DISALLOW_FILE_MODS' ) ) :
       define( 'DISALLOW_FILE_MODS', true );
   endif;
-
-else:
-  /**
-   * This block will be executed if you have NO wp-config-local.php and you
-   * are NOT running on Pantheon. Insert alternate config here if necessary.
-   *
-   * If you are only running on Pantheon, you can ignore this block.
-   */
-  define('DB_NAME',          'database_name');
-  define('DB_USER',          'database_username');
-  define('DB_PASSWORD',      'database_password');
-  define('DB_HOST',          'database_host');
-  define('DB_CHARSET',       'utf8');
-  define('DB_COLLATE',       '');
-  define('AUTH_KEY',         'put your unique phrase here');
-  define('SECURE_AUTH_KEY',  'put your unique phrase here');
-  define('LOGGED_IN_KEY',    'put your unique phrase here');
-  define('NONCE_KEY',        'put your unique phrase here');
-  define('AUTH_SALT',        'put your unique phrase here');
-  define('SECURE_AUTH_SALT', 'put your unique phrase here');
-  define('LOGGED_IN_SALT',   'put your unique phrase here');
-  define('NONCE_SALT',       'put your unique phrase here');
 endif;
-
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-define('WP_DEBUG', false);
 
 // used to override the wp_options and
 // dynamically set the site for this environment
