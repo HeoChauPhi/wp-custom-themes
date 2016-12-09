@@ -1,6 +1,5 @@
 # Wordpress Specific
 build/wp-config/wp-config.local.php
-build/wp-config/wp-config.pantheonsite.php
 build/wp-content/plugins
 build/wp-content/vendor
 build/wp-content/uploads
