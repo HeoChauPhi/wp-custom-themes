@@ -21,9 +21,18 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 switch ($_SERVER['HTTP_HOST']) {
-  case 'produrl.com':
-  case 'altprodurl.com':
-    $config_file = 'wp-config/wp-config.production.php';
+  case 'dev-rhm-site.pantheonsite.io':
+    $config_file = 'wp-config/wp-config.pantheonsite.php';
+    //define('WP_CACHE', true); //Added by WP-Cache Manager
+    break;
+
+  case 'test-rhm-site.pantheonsite.io':
+    $config_file = 'wp-config/wp-config.pantheonsite.php';
+    //define('WP_CACHE', true); //Added by WP-Cache Manager
+    break;
+
+  case 'live-rhm-site.pantheonsite.io':
+    $config_file = 'wp-config/wp-config.pantheonsite.php';
     //define('WP_CACHE', true); //Added by WP-Cache Manager
     break;
 
@@ -82,14 +91,14 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 define('FS_METHOD', 'direct');
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+  define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
