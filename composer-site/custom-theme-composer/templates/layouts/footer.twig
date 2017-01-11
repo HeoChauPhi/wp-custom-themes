@@ -1,3 +1,9 @@
+{#
+{% for key, footer in footer_widget %}
+  {{acfwidget('acf_footer_flexible_fields', 'footer_widget-' ~ key )}}
+{% endfor %}
+#}
+
 {% block footer %}
   <footer id="footer" class="footer">
     {% include 'footer-menu.twig' %}
