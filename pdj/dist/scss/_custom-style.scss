@@ -1,0 +1,54 @@
+app-toolbar.tall {
+  height: 148px;
+}
+
+.drawer-list {
+  margin: 0 20px;
+}
+
+.drawer-list a {
+  display: block;
+  padding: 0 16px;
+  text-decoration: none;
+  color: var(--app-secondary-color);
+  line-height: 40px;
+}
+
+.drawer-list a.iron-selected {
+  color: black;
+  font-weight: bold;
+}
+
+.drawer-hidden {
+  display: none;
+}
+
+[main-title] {
+font-weight: lighter;
+margin-left: 108px;
+}
+
+[condensed-title] {
+font-weight: lighter;
+margin-left: 30px;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+[condensed-title] i {
+font-weight: 100;
+font-style: normal;
+}
+
+@media (max-width: 639px) {
+[main-title] {
+  margin-left: 50px;
+  font-size: 30px;
+}
+[condensed-title] {
+  font-size: 15px;
+}
+}
+main {
+padding-top: 212px;
+}

@@ -1,0 +1,35 @@
+<div class="banner-page-title bg--darkblue {% if not post.get_field('banner_image') %} has-bg-img {% endif %}" {% if post.get_field('banner_image') %} style="background-image: url( {{ post.get_field('banner_image').url }} );"{% endif %}>
+  <div class="container-wide">
+    <h1 class="banner-page-title__title">{{ post.title }}</h1>
+  </div>
+</div>
+
+<div class="block-content top-translation">
+  <div class="container-wide">
+    <div class="block-content__wrappre">
+      <div class="block-main-content">
+        <div class="date align--center">{{ post.date }}</div>
+        {% if post.get_field('summary') %}
+        <div class="sub-page-title">{{ post.get_field('summary') }}</div>
+        {% endif %}
+        {{ function('shortcode', '[share_buttons]') }}
+        <div class="block-content__body">{{ post.content|shortcodes }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{#% if related('category') %}
+  <h3 class="related-title block-title">Related post</h3>
+  <ul class="post-related">
+    {% for post in function('related', 'category') %}
+      <li><a href="{{post.link}}">{{post.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %#}
+
+{#% if function('comments_open') %}
+{% include 'comments.twig' %}
+{{ function('comment_form') }}
+{% endif %#}
+

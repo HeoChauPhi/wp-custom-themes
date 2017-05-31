@@ -1,0 +1,22 @@
+{% block header %}
+  <header id="header" class="header">
+    <div class="container-wide">
+      <div class="header__left">
+        <div class="header__logo">
+          {#{function('the_custom_logo')}#}
+          <a href="{{ site.url }}" class="logo">
+              <img alt="{{ site.name }}" src="{{ site_logo }}" alt="{{ site.name }}">
+          </a>
+          <a href="{{ site.url }}" class="logo logo__scroll"><img src={{ site_logo_scroll }}></a>
+        </div>
+      </div>
+
+      <div class="header__right">
+        {% for key, header in header_widget %}
+          {{ function('acfwidget', 'header_blocks', 'header_widget-' ~ key ) }}
+        {% endfor %}
+      </div>
+      <div class="menu-responsive js-toogle--menu"><span class="icon-menu"></span></div>
+    </div>
+  </header>
+{% endblock %}
