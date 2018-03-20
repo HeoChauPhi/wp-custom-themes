@@ -57,13 +57,17 @@ class PDJSettingsPage {
   * Register and add settings
   */
   public function pdj_page_init() {
-    register_setting('pdj_option_config', 'pdj_board_settings');
+    register_setting(
+      'pdj_option_config', 
+      'pdj_board_settings',
+      array( $this, 'pdj_sanitize' )
+    );
 
     // Setting ID
     add_settings_section(
       'pdj_google_api', // ID
       __('Google API', 'pdj_theme'), // Title
-      array( $this ), // Callback
+      array( $this, 'pdj_google_print_section_info' ), // Callback
       'pdj-setting-admin' // Page
     );
 
@@ -78,10 +82,24 @@ class PDJSettingsPage {
   }
 
   /**
+   * Sanitize each setting field as needed
+   *
+   * @param array $input Contains all settings fields as array keys
+   */
+  public function pdj_sanitize( $input ) {
+    $new_input = array();
+
+    if( isset( $input['pdj_google_api_key'] ) )
+      $new_input['pdj_google_api_key'] = sanitize_text_field( $input['pdj_google_api_key'] );
+
+    return $new_input;
+  }
+
+  /**
   * Print the Section text
   */
-  public function pdj_print_section_info() {
-    echo __("Use shortcode [pdj_share_this]", 'pdj_theme');
+  public function pdj_google_print_section_info() {
+    echo __("", 'pdj_theme');
   }
 
   /**
