@@ -401,6 +401,13 @@ function preg_match_url($field, $extend = '') {
  *
  */
 function get_id_embed($url) {
+  $arrContextOptions=array(
+    "ssl"=>array(
+      "verify_peer"=>false,
+      "verify_peer_name"=>false,
+    ),
+  ); 
+  
   $video_url = preg_match_url($url);
   $parsed = parse_url($video_url);
 
@@ -426,7 +433,7 @@ function get_id_embed($url) {
 
     $video_type   = 'youtube';
     $video_id     = $matches[1];
-    $json_code    = file_get_contents('https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=' . $video_id . '&format=json');
+    $json_code    = file_get_contents('https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=' . $video_id . '&format=json', false, stream_context_create($arrContextOptions));
     $video_thumb  = json_decode($json_code)->thumbnail_url;
   } else {
     $pattern = '/(https?:\/\/)?(www\.)?(player\.)?vimeo\.com\/([a-z]*\/)*([‌​0-9]{6,11})[?]?.*/';
@@ -434,7 +441,7 @@ function get_id_embed($url) {
 
     $video_type   = 'vimeo';
     $video_id     = $matches[5];
-    $json_code    = file_get_contents('http://vimeo.com/api/v2/video/' . $video_id . '.json');
+    $json_code    = file_get_contents('http://vimeo.com/api/v2/video/' . $video_id . '.json', false, stream_context_create($arrContextOptions));
     $video_thumb  = json_decode($json_code)[0]->thumbnail_large;
   }
 
